@@ -53,20 +53,20 @@ public class Room
             westExit = west;
         }
     }
-    public boolean getExits(String direction){
+    public Room getExit(String direction){
         if(direction.equals("north")){
-            return true;
+            return northExit;
         }
         if(direction.equals("east")){
-            return true;
+            return eastExit;
         }
         if(direction.equals("south")){
-            return true;
+            return southExit;
         }
         if(direction.equals("west")){
-            return true;
+            return westExit;
         }
-        return false;
+        return null;
     }
     
 
