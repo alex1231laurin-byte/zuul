@@ -33,21 +33,33 @@ public class Game
      */
     private void createRooms()
     {
-        Room outside, theater, pub, lab, office;
+        Room outside, mainLobby, hallway1, hallway2, hallway3, researchRoom, classBranchRoom,  classroom1,  classroom2,  classroom3, oddRoom;
       
         // create the rooms
-        outside = new Room("outside the main entrance of the university");
-        theater = new Room("in a lecture theater");
-        pub = new Room("in the campus pub");
-        lab = new Room("in a computing lab");
-        office = new Room("in the computing admin office");
+        outside = new Room("outside the main entrance of the abandonned building");
+        mainLobby = new Room("in the main lobby of the building");
+        hallway1 = new Room("in a worn out hallway");
+        hallway2 = new Room("in a dark hallway");
+        hallway3 = new Room("in a well-maintained hallway");
+        researchRoom = new Room("in a research room about things you don't know");
+        classBranchRoom = new Room("in a lobby leading to 3 classes"); 
+        classroom1 = new Room("in a class about bioetichs");
+        classroom2 = new Room("in a class about computers");
+        classroom3 = new Room("in a class about machines");
+        oddRoom = new Room("in an empty black room with a black sword in the middle");
         
         // initialise room exits
-        outside.setExits(null, theater, lab, pub);
-        theater.setExits(null, null, null, outside);
-        pub.setExits(null, outside, null, null);
-        lab.setExits(outside, office, null, null);
-        office.setExits(null, null, null, lab);
+        outside.setExits(mainLobby, null, null, null);
+        mainLobby.setExits(hallway2, hallway3, outside, hallway1);
+        hallway1.setExits(researchRoom, mainLobby, null, null);
+        researchRoom.setExits(null, null, hallway1, null);
+        hallway2.setExits(oddRoom, null, mainLobby, null);
+        oddRoom.setExits(null, null, hallway2, null);
+        hallway3.setExits(null, classBranchRoom, null, mainLobby);
+        classBranchRoom.setExits(classroom1, classroom2, classroom3, hallway3);
+        classroom1.setExits(null, null, classBranchRoom, null);
+        classroom2.setExits(null, null, null, classBranchRoom);
+        classroom3.setExits(classBranchRoom, null, null, null);
 
         // start game outside
         currentRoom = outside;  
