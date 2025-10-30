@@ -94,7 +94,6 @@ public class Game
         System.out.println("Type 'help' if you need help.");
         System.out.println();
         System.out.println("You are " + currentRoom.getDescription());
-        System.out.print("Exits: ");
         printLocationInfo();
     }
 
@@ -157,7 +156,7 @@ public class Game
         String direction = command.getSecondWord();
 
         // Try to leave current room.
-        Room nextRoom = currentRoom.getExit("east");
+        Room nextRoom = currentRoom.getExit(direction);
 
         if (nextRoom == null) {
             System.out.println("There is no door!");
@@ -165,7 +164,6 @@ public class Game
         else {
             currentRoom = nextRoom;
             System.out.println("You are " + currentRoom.getDescription());
-            System.out.print("Exits: ");
             printLocationInfo();
         }
     }
@@ -187,18 +185,7 @@ public class Game
         }
     }
     private void printLocationInfo(){
-        if(currentRoom.getExit("north") != null) {
-            System.out.print("north ");
-        }
-        if(currentRoom.getExit("east") != null) {
-            System.out.print("east ");
-        }
-        if(currentRoom.getExit("south") != null) {
-            System.out.print("south ");
-        }
-        if(currentRoom.getExit("west") != null) {
-            System.out.print("west ");
-        }
+        System.out.print(currentRoom.getExitString());
         System.out.println();
     }
 }
