@@ -38,3 +38,4 @@ scenery of the game and is connected to other rooms via exits. Finally, the Comm
 command words known in the game.
 13: It sets the currentRoom object to the room that was mapped to that direction.
 
+

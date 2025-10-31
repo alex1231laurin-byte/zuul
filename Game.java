@@ -124,6 +124,9 @@ public class Game
         if (commandWord.equals("help")) {
             printHelp();
         }
+        else if (commandWord.equals("look")){
+            System.out.println(currentRoom.getLongDescription());
+        }
         else if (commandWord.equals("go")) {
             goRoom(command);
         }
@@ -147,7 +150,7 @@ public class Game
         System.out.println("around at the abandonned building.");
         System.out.println();
         System.out.println("Your command words are:");
-        System.out.println("   go quit help");
+        System.out.println("   go quit help look");
     }
 
     /** 
@@ -172,8 +175,7 @@ public class Game
         }
         else {
             currentRoom = nextRoom;
-            System.out.println("You are " + currentRoom.getDescription());
-            printLocationInfo();
+            System.out.println(currentRoom.getLongDescription());
         }
     }
 
