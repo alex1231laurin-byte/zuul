@@ -37,5 +37,8 @@ class Command. The Command class holds information that was issued by the user. 
 scenery of the game and is connected to other rooms via exits. Finally, the CommandWords class holds an enumeration of all
 command words known in the game.
 13: It sets the currentRoom object to the room that was mapped to that direction.
-
-
+17: Yes, I still need to change the Game class because of the Game class's private method processCommand.
+18: I do not think it would be a good idea to make all of the CommandWords's methods static because that would allow every other
+class to call its methods, since currently the only class that uses the CommandWords's methods is Parser. However, in the future,
+we could change CommandWords's methods to become static if we want to create more classes that could use the CommandWord's commands
+without ever worrying about creating objects inside of classes.
