@@ -49,17 +49,26 @@ public class Game
         oddRoom = new Room("in an empty black room with a black sword in the middle");
         
         // initialise room exits
-        outside.setExits(mainLobby, null, null, null);
-        mainLobby.setExits(hallway2, hallway3, outside, hallway1);
-        hallway1.setExits(researchRoom, mainLobby, null, null);
-        researchRoom.setExits(null, null, hallway1, null);
-        hallway2.setExits(oddRoom, null, mainLobby, null);
-        oddRoom.setExits(null, null, hallway2, null);
-        hallway3.setExits(null, classBranchRoom, null, mainLobby);
-        classBranchRoom.setExits(classroom1, classroom2, classroom3, hallway3);
-        classroom1.setExits(null, null, classBranchRoom, null);
-        classroom2.setExits(null, null, null, classBranchRoom);
-        classroom3.setExits(classBranchRoom, null, null, null);
+        outside.setExit("north", mainLobby);
+        mainLobby.setExit("north", hallway2);
+        mainLobby.setExit("east",hallway3);
+        mainLobby.setExit("south",outside);
+        mainLobby.setExit("west",hallway1);
+        hallway1.setExit("north", researchRoom);
+        hallway1.setExit("east",mainLobby);
+        researchRoom.setExit("south", hallway1);
+        hallway2.setExit("north", oddRoom);
+        hallway2.setExit("south", mainLobby);
+        oddRoom.setExit("south",hallway2);
+        hallway3.setExit("east",classBranchRoom);
+        hallway3.setExit("west",mainLobby);
+        classBranchRoom.setExit("north",classroom1);
+        classBranchRoom.setExit("east",classroom2);
+        classBranchRoom.setExit("south",classroom3);
+        classBranchRoom.setExit("west",hallway3);
+        classroom1.setExit("south",classBranchRoom);
+        classroom2.setExit("west",classBranchRoom);
+        classroom3.setExit("north",classBranchRoom);
 
         // start game outside
         currentRoom = outside;  
