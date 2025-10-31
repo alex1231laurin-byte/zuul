@@ -36,3 +36,5 @@ To the east of the lab is the office.
 class Command. The Command class holds information that was issued by the user. The Room class represents one location in the
 scenery of the game and is connected to other rooms via exits. Finally, the CommandWords class holds an enumeration of all
 command words known in the game.
+13: It sets the currentRoom object to the room that was mapped to that direction.
+
